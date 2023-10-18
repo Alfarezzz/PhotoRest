@@ -1,0 +1,243 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.image{
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+.content:hover{
+    opacity: 1;
+}
+.content h1{
+    font-size: 45px;
+    color: #F5F5F5;
+    margin-bottom: 15px;
+}
+.content p{
+    font-size: 19px;
+    color: #fff;
+}
+.content > * {
+    transform: translateY(25px);
+    transition: transform 0.6s;
+}
+.content:hover > * {
+    transform: translateY(0px);
+
+}
+/*MENU*/
+#navbar-PhotoRest {
+    width: 100%;
+    display: flex;
+    left: -10px;
+    top: -5px;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    position: fixed;
+    background-color: #ffffff  ;
+    z-index: 10000;
+}
+#navbar-PhotoRest .logo {
+    width: 25px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#navbar-PhotoRest .logo:hover {
+    background: #eeeeee;
+}
+#navbar-PhotoRest .home {
+    color: #fff;
+    background: #000000;
+    padding: 12px 25px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 40px;
+    margin: 0px 5px;
+    text-decoration: none;
+}
+#navbar-PhotoRest .finder {
+    width: 70%;
+    margin: 0px 5px;
+    padding: 12px 35px;
+    border-radius: 40px;
+    outline: none;
+    position: relative;
+    background-color: #efefef;
+    font-size: 15px;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png);
+    background-size: 21px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-position: 10px;
+    color: gray;
+    border: 4px solid transparent;
+}
+#navbar-PhotoRest .finder:hover {
+    background-color: #3333;
+}
+#navbar-PhotoRest .finder:focus {
+    border: 4px solid #7bb5f0;
+    padding: 12px 20px;
+    background-image: none;
+}
+#navbar-PhotoRest .finder::placeholder {
+    user-select: none;
+}
+.icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.icon_container .icon {
+    width: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+}
+.icon_container .icon:hover {
+    background-color: #eeeeee;
+}
+.icon_container .btn {
+    width: 30px;
+    padding: 5px;
+}
+#drop-btn{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.focus-bar {
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    background: #fff;
+    border: 2px solid #3333;
+    position: absolute;
+    top: 50px;
+    left: -90px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    user-select: none;
+    z-index: 99;
+  }
+  .focus-bar.active {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+}
+  .pp-bar a {
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 2px solid #161b22;
+    color: #161b22;
+    border-radius: 5px;
+  }
+  .pp-bar {
+    flex-direction: column;
+  }
+  .pp-bar img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .pp-bar a:hover {
+    background: #161b22;
+    color: white;
+  }
+
+/*MINI BAR*/
+#button_search {
+    display: none;
+    padding: 15px;
+}
+.responsive_search_bar {
+    max-width: 100%;
+    padding: 40px 10px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -300px;
+    transition: all 0.3s;
+    overflow: hidden;
+    display: none;
+    background: #fff;
+    box-shadow: 0px 0px 2px 0px #333;
+    margin: 0px 5px;
+    z-index: 99;
+}
+.responsive_search_bar input {
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border-radius: 40px;
+    border: 4px solid transparent;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png);
+    background-size: 21px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-position: 10px;
+    padding: 0px 15px 0px 35px;
+    background-color: #efefef;
+}
+.responsive_search_bar input:focus {
+    border: 4px solid #7bb5f0;
+}
+.responsive_search_bar p {
+    font-size: 11px;
+    padding: 11px;
+    margin-left: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    top: -12px;
+    right: -1px;
+    transition: all 0.3s;
+}
+.responsive_search_bar p:hover {
+    background: #eeeeee;
+    transform: rotate(-180deg);
+}

@@ -1,0 +1,263 @@
+body {
+  
+  font-family: Arial;
+  text-decoration: none;
+}
+.main-container-category {
+  padding: 30px;
+  }
+  
+  .main-container-category h2{
+    margin-left: 6vh;
+  }
+  
+  .container-category {
+    display: flex;
+    width: 100%;
+    height: 14vh;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  .box-category {
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .isi-category {
+    justify-content: center;
+    margin: 0;
+    padding: 2rem;
+    
+  }
+
+  .gambar-category p{
+    font-size: 3rem;
+    font-weight: 650px;
+  }
+  
+  .gambar-category {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 400px;
+    height: 300px;
+    transition: all 0.3s ease-in;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  .gambar-category.food{
+    background-image: url("images/food/ay\ em.jpg");
+    background-position: 0 50%; 
+    
+  }
+
+  .gambar-category.beach{
+    background-image: url("images/beach/beach.jpg");
+  }
+
+  .gambar-category.animal{
+    background-image: url("images/animal/cat2.jpg");
+    background-position: 10%;
+  
+  }
+
+  .gambar-category.shoes{
+    background-image: url("images/shoes/shoes11.jpg");
+  }
+  .gambar-category.car{
+    background-image: url("images/car/car27.jpg");
+  }
+
+
+/*MENU*/
+#navbar-PhotoRest {
+  width: 100%;
+  display: flex;
+  left: -10px;
+  top: -5px;
+  align-items: center;
+  padding: 10px;
+  font-weight: bold;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 10000;
+}
+#navbar-PhotoRest .logo {
+  width: 25px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+#navbar-PhotoRest .logo:hover {
+  background: #eeeeee;
+}
+#navbar-PhotoRest .home {
+  color: #fff;
+  background: #000000;
+  padding: 12px 25px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 40px;
+  margin: 0px 5px;
+  text-decoration: none;
+}
+#navbar-PhotoRest .finder {
+  width: 70%;
+  margin: 0px 5px;
+  padding: 12px 35px;
+  border-radius: 40px;
+  outline: none;
+  position: relative;
+  background-color: #efefef;
+  font-size: 15px;
+  background-image: url(https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png);
+  background-size: 21px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-position: 10px;
+  color: gray;
+  border: 4px solid transparent;
+}
+#navbar-PhotoRest .finder:hover {
+  background-color: #3333;
+}
+#navbar-PhotoRest .finder:focus {
+  border: 4px solid #7bb5f0;
+  padding: 12px 20px;
+  background-image: none;
+}
+#navbar-PhotoRest .finder::placeholder {
+  user-select: none;
+}
+.icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.icon_container .icon {
+  width: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+}
+.icon_container .icon:hover {
+  background-color: #eeeeee;
+}
+.icon_container .btn {
+  width: 30px;
+  padding: 5px;
+}
+#drop-btn{
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.focus-bar {
+  width: 250px;
+  height: 350px;
+  border-radius: 15px;
+  background: #fff;
+  border: 2px solid #3333;
+  position: absolute;
+  top: 50px;
+  left: -90px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  user-select: none;
+  z-index: 99;
+}
+.focus-bar.active {
+  visibility: visible;
+  opacity: 1;
+  top: 50px;
+}
+.pp-bar a {
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 2px solid #161b22;
+  color: #161b22;
+  border-radius: 5px;
+}
+.pp-bar {
+  flex-direction: column;
+}
+.pp-bar img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.pp-bar a:hover {
+  background: #161b22;
+  color: white;
+}
+
+/*MINI BAR*/
+#button_search {
+  display: none;
+  padding: 15px;
+}
+.responsive_search_bar {
+  max-width: 100%;
+  padding: 40px 10px;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -300px;
+  transition: all 0.3s;
+  overflow: hidden;
+  display: none;
+  background: #fff;
+  box-shadow: 0px 0px 2px 0px #333;
+  margin: 0px 5px;
+  z-index: 99;
+}
+.responsive_search_bar input {
+  width: 100%;
+  height: 35px;
+  outline: none;
+  border-radius: 40px;
+  border: 4px solid transparent;
+  background-image: url(https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/search-3-256.png);
+  background-size: 21px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-position: 10px;
+  padding: 0px 15px 0px 35px;
+  background-color: #efefef;
+}
+.responsive_search_bar input:focus {
+  border: 4px solid #7bb5f0;
+}
+.responsive_search_bar p {
+  font-size: 11px;
+  padding: 11px;
+  margin-left: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: -12px;
+  right: -1px;
+  transition: all 0.3s;
+}
+.responsive_search_bar p:hover {
+  background: #eeeeee;
+  transform: rotate(-180deg);
+}
