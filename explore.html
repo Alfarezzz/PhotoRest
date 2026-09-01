@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoRest - Visual Inspiration & Ideas</title>
+  <link rel="icon" type="image/x-icon" href="images/alpreslogo.png">
+  
+  <!-- Clean Sapphire Blue Stylesheet (Complete Edition) -->
+  <link rel="stylesheet" href="css/clean-theme.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Floating Glassmorphic Navbar -->
+  <header class="navbar-clean">
+    <a href="explore.html" class="brand-logo">
+      <img src="images/alpreslogo.png" alt="PhotoRest Logo" draggable="false">
+      <span class="brand-title-text">PhotoRest</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="explore.html" class="nav-btn active">
+        <i class='bx bx-compass'></i>
+        <span>Explore</span>
+      </a>
+      <a href="category.html" class="nav-btn">
+        <i class='bx bx-category-alt'></i>
+        <span>Categories</span>
+      </a>
+      <a href="profile.html" class="nav-btn">
+        <i class='bx bx-user'></i>
+        <span>Profile</span>
+      </a>
+    </nav>
+
+    <!-- Live Search Input -->
+    <div class="search-wrapper">
+      <i class='bx bx-search search-icon-left'></i>
+      <input type="text" id="search_bar" class="search-input-box" placeholder="Search inspiration, topics, or online keywords..." autocomplete="off">
+      <button id="searchClearBtn" class="search-clear-btn" title="Clear search">
+        <i class='bx bx-x'></i>
+      </button>
+    </div>
+
+    <!-- Action Buttons Right -->
+    <div class="nav-actions">
+      <!-- Create / Upload Pin -->
+      <button id="createPinBtn" class="action-btn-primary" title="Create new Pin">
+        <i class='bx bx-plus'></i>
+        <span>Create</span>
+      </button>
+
+      <!-- Profile Avatar -->
+      <a href="profile.html" class="user-avatar-btn" title="Kelan (View Profile)">
+        <img class="user-avatar-img" src="images/perfil.png" alt="User Profile">
+      </a>
+
+      <!-- Logout -->
+      <a href="index.html" class="action-icon-btn" title="Logout to Landing">
+        <i class='bx bx-log-out'></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Category Pills Filter Bar -->
+  <section class="category-filter-bar" id="categoryFilterBar">
+    <!-- Rendered dynamically by app.js -->
+  </section>
+
+  <!-- Feed Header & Controls Toolbar (Sorting & Density) -->
+  <div class="feed-header-info">
+    <div>
+      <span class="feed-title-text" id="feedTitleText">Discover Inspiration</span>
+      <span class="feed-count-text" id="feedCountText">Discovering ideas...</span>
+    </div>
+
+    <!-- Phase 3 Controls Toolbar -->
+    <div class="feed-controls-toolbar">
+      <!-- Sorting Dropdown -->
+      <select id="sortSelect" class="sort-select-box" title="Sort pins">
+        <option value="popular">🔥 Most Liked</option>
+        <option value="newest">✨ Newest First</option>
+        <option value="az">🔤 Alphabetical (A-Z)</option>
+      </select>
+
+      <!-- Grid Density Toggles -->
+    </div>
+  </div>
+
+  <!-- Dynamic Masonry / Proportional Grid Container -->
+  <main class="gallery-container" id="galleryContainer">
+    <!-- Rendered dynamically by app.js -->
+  </main>
+
+  <!-- Clean Bottom Section & Grounded Footer -->
+  <section class="feed-end-section">
+    <div class="feed-end-badge">
+      <i class='bx bx-check-circle' style="color: var(--primary);"></i>
+      <span>You're all caught up with the latest ideas!</span>
+    </div>
+    
+            <div class="footer-content-clean">
+      <div>
+        <strong>PhotoRest</strong> &copy; 2026. Visual Inspiration Gallery.
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="btn-back-to-top" title="Back to top">
+    <i class='bx bx-chevron-up'></i>
+  </button>
+
+  <!-- Detail Lightbox Modal -->
+  <div class="modal-backdrop" id="lightboxModal">
+    <!-- Previous & Next Navigation Arrows -->
+    <button id="lightboxPrevBtn" class="lightbox-nav-btn lightbox-nav-prev" title="Previous photo (←)">
+      <i class='bx bx-chevron-left'></i>
+    </button>
+    <button id="lightboxNextBtn" class="lightbox-nav-btn lightbox-nav-next" title="Next photo (→)">
+      <i class='bx bx-chevron-right'></i>
+    </button>
+
+    <div class="lightbox-card" id="lightboxCard">
+      <div class="lightbox-image-side">
+        <img id="lightboxImage" class="lightbox-main-img" src="" alt="Pin Preview">
+      </div>
+      <div class="lightbox-info-side">
+        <div>
+          <div class="lightbox-header">
+            <span class="badge-category" id="lightboxCategoryTag">Inspiration</span>
+            <button class="lightbox-close-btn" id="lightboxCloseBtn" title="Close (Esc)">
+              <i class='bx bx-x'></i>
+            </button>
+          </div>
+          <h2 class="lightbox-title" id="lightboxTitle">Pin Title</h2>
+          <p class="lightbox-description" id="lightboxDescription">Pin description...</p>
+          
+          <div class="lightbox-author">
+            <img class="author-avatar" id="lightboxAuthorAvatar" src="images/perfil.png" alt="Author">
+            <div>
+              <div class="author-name" id="lightboxAuthorName">Creator Name</div>
+              <div class="author-role" id="lightboxAuthorRole">PhotoRest Contributor</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Palette Extraction Section -->
+        <div class="color-palette-section">
+          <div class="palette-section-title">
+            <i class='bx bx-palette'></i> Extracted Color Palette (Click to copy Hex)
+          </div>
+          <div class="palette-swatches-row" id="lightboxPaletteRow">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Lightbox Action Bar -->
+        <div class="lightbox-actions">
+          <button class="lightbox-btn-like" id="lightboxLikeBtn" title="Like this photo">
+            <i class='bx bx-heart' id="lightboxLikeIcon"></i>
+            <span id="lightboxLikeCount">0</span>
+          </button>
+          
+          <button class="lightbox-btn-download" id="lightboxDownloadBtn" title="Download High-Res">
+            <i class='bx bx-download'></i>
+            <span>Download</span>
+          </button>
+          
+          <button class="lightbox-btn-share" id="lightboxShareBtn" title="Share via QR Code & Social">
+            <i class='bx bx-share-alt'></i>
+            <span>Share</span>
+          </button>
+          
+          <button class="lightbox-btn-save" id="lightboxSaveBtn" title="Save to collection">
+            <i class='bx bx-bookmark'></i>
+            <span>Save</span>
+          </button>
+        </div>
+
+        <!-- "More Like This" Section -->
+        <div class="lightbox-related-section">
+          <h4 class="related-section-title">
+            <i class='bx bx-grid-alt' style="color: var(--primary);"></i>
+            <span>More like this</span>
+          </h4>
+          <div class="related-pins-grid" id="lightboxRelatedGrid">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share & QR Code Modal (Phase 3 Feature) -->
+  <div class="modal-backdrop" id="shareModal">
+    <div class="share-modal-card">
+      <button class="lightbox-close-btn" id="closeShareModalBtn" style="position: absolute; top: 16px; right: 16px;">
+        <i class='bx bx-x'></i>
+      </button>
+
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">Share Inspiration</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Scan the QR code with your smartphone or share directly</p>
+
+      <!-- Dynamic QR Code Container -->
+      <div class="qr-code-img-container">
+        <img id="shareQrCodeImg" class="qr-code-img" src="" alt="QR Code">
+      </div>
+
+      <!-- Social Share Buttons -->
+      <div class="share-social-grid">
+        <a id="shareWhatsappBtn" class="social-share-btn social-btn-wa" target="_blank">
+          <i class='bx bxl-whatsapp'></i>
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareTelegramBtn" class="social-share-btn social-btn-tg" target="_blank">
+          <i class='bx bxl-telegram'></i>
+          <span>Telegram</span>
+        </a>
+        <a id="shareTwitterBtn" class="social-share-btn social-btn-tw" target="_blank">
+          <i class='bx bxl-twitter'></i>
+          <span>Twitter (X)</span>
+        </a>
+        <button id="shareCopyLinkBtn" class="social-share-btn social-btn-cp">
+          <i class='bx bx-copy'></i>
+          <span>Copy Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create New Pin Modal -->
+  <div class="modal-backdrop" id="addPinModal">
+    <div class="pin-form-card">
+      <div class="pin-form-header">
+        <h3 class="pin-form-title">Create New Pin</h3>
+        <button class="lightbox-close-btn" id="closeAddPinBtn">
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+
+      <form id="createPinForm">
+        <!-- File Dropzone -->
+        <div class="upload-dropzone" id="uploadDropzone">
+          <i class='bx bx-cloud-upload upload-dropzone-icon'></i>
+          <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">Click to choose an image from your device</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Supports JPG, PNG, WEBP, GIF</p>
+          <input type="file" id="pinFileInput" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- Preview Image Container -->
+        <div class="upload-preview-container" id="uploadPreviewContainer">
+          <img id="uploadPreviewImg" class="upload-preview-img" src="" alt="Preview">
+        </div>
+
+        <!-- Or URL Input -->
+        <div class="form-group">
+          <label class="form-label" for="pinUrlInput">Or Paste Image URL</label>
+          <input type="url" id="pinUrlInput" class="form-input" placeholder="https://example.com/image.jpg">
+        </div>
+
+        <!-- Title Input -->
+        <div class="form-group">
+          <label class="form-label" for="pinTitleInput">Title</label>
+          <input type="text" id="pinTitleInput" class="form-input" placeholder="Add a catchy title" required>
+        </div>
+
+        <!-- Category Select -->
+        <div class="form-group">
+          <label class="form-label" for="pinCategorySelect">Category</label>
+          <select id="pinCategorySelect" class="form-select">
+            <option value="explore">Art & Concepts</option>
+            <option value="food">Food & Culinary</option>
+            <option value="beach">Beach & Coasts</option>
+            <option value="animal">Wild & Pets</option>
+            <option value="shoes">Shoes & Streetwear</option>
+            <option value="car">Cars & Speed</option>
+          </select>
+        </div>
+
+        <!-- Description Input -->
+        <div class="form-group">
+          <label class="form-label" for="pinDescInput">Description (Optional)</label>
+          <textarea id="pinDescInput" class="form-textarea" placeholder="Describe your photo idea or story"></textarea>
+        </div>
+
+        <button type="submit" class="action-btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
+          <i class='bx bx-upload'></i>
+          <span>Publish Pin</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Categories - PhotoRest</title>
+  <link rel="icon" type="image/x-icon" href="images/alpreslogo.png">
+  <link rel="stylesheet" href="css/clean-theme.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+
+  <!-- Clean Floating Navbar -->
+  <header class="navbar-clean">
+    <a href="explore.html" class="brand-logo">
+      <img src="images/alpreslogo.png" alt="PhotoRest Logo" draggable="false">
+      <span class="brand-title-text">PhotoRest</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="explore.html" class="nav-btn">
+        <i class='bx bx-compass'></i>
+        <span>Explore</span>
+      </a>
+      <a href="category.html" class="nav-btn active">
+        <i class='bx bx-category-alt'></i>
+        <span>Categories</span>
+      </a>
+      <a href="profile.html" class="nav-btn">
+        <i class='bx bx-user'></i>
+        <span>Profile</span>
+      </a>
+    </nav>
+
+    <div class="search-wrapper">
+      <i class='bx bx-search search-icon-left'></i>
+      <input type="text" id="search_bar" class="search-input-box" placeholder="Search inspiration, categories, or keywords..." autocomplete="off">
+    </div>
+
+    <div class="nav-actions">
+      <a href="explore.html" class="action-btn-primary">
+        <i class='bx bx-grid-alt'></i>
+        <span>View Feed</span>
+      </a>
+      <a href="profile.html" class="user-avatar-btn" title="View Profile">
+        <img class="user-avatar-img" src="images/perfil.png" alt="User Profile">
+      </a>
+      <a href="index.html" class="action-icon-btn" title="Logout">
+        <i class='bx bx-log-out'></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Categories Header -->
+  <section class="categories-header">
+    <h1 class="categories-title">Explore Topics & Categories</h1>
+    <p class="categories-subtitle">Discover curated visual inspiration across diverse themes, tailored for your creative ideas.</p>
+  </section>
+
+  <!-- Categories Grid -->
+  <main class="categories-grid">
+    <!-- Food -->
+    <a href="explore.html?cat=food" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/food/burger.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-bowl-rice'></i> 30+ Photos</span>
+        <h2 class="category-name-text">Food & Culinary</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+
+    <!-- Beach -->
+    <a href="explore.html?cat=beach" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/beach/beach.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-water'></i> 35+ Photos</span>
+        <h2 class="category-name-text">Beach & Coasts</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+
+    <!-- Animals -->
+    <a href="explore.html?cat=animal" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/animal/fox.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-cat'></i> 30+ Photos</span>
+        <h2 class="category-name-text">Wild & Pets</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+
+    <!-- Shoes -->
+    <a href="explore.html?cat=shoes" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/shoes/shoes.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-closet'></i> 35+ Photos</span>
+        <h2 class="category-name-text">Shoes & Streetwear</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+
+    <!-- Cars -->
+    <a href="explore.html?cat=car" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/car/car1.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-car'></i> 35+ Photos</span>
+        <h2 class="category-name-text">Cars & Speed</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+
+    <!-- Art & Concepts -->
+    <a href="explore.html?cat=explore" class="category-card">
+      <div class="category-card-bg" style="background-image: url('images/Elden.jpg');"></div>
+      <div class="category-card-gradient"></div>
+      <div class="category-card-info">
+        <span class="category-badge-chip"><i class='bx bx-palette'></i> Featured</span>
+        <h2 class="category-name-text">Art & Game Concepts</h2>
+        <span class="category-explore-link">Explore collection <i class='bx bx-right-arrow-alt'></i></span>
+      </div>
+    </a>
+  </main>
+
+  <!-- Clean Grounded Footer -->
+  <footer class="feed-end-section" style="margin-top: auto;">
+            <div class="footer-content-clean">
+      <div>
+        <strong>PhotoRest</strong> &copy; 2026. Visual Inspiration Gallery.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("search_bar");
+    if (searchInput) {
+      searchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" && searchInput.value.trim()) {
+          window.location.href = `explore.html?q=${encodeURIComponent(searchInput.value.trim())}`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoRest - Visual Inspiration & Ideas</title>
+  <link rel="icon" type="image/x-icon" href="images/alpreslogo.png">
+  
+  <!-- Clean Landing CSS -->
+  <link rel="stylesheet" href="css/landing.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Ambient Clean Gradient Background -->
+  <div class="ambient-bg"></div>
+
+  <!-- Landing Navigation -->
+  <header class="landing-nav">
+    <a href="index.html" class="brand">
+      <img src="images/alpreslogo.png" alt="PhotoRest Logo">
+      <span>PhotoRest</span>
+    </a>
+    <div class="nav-cta">
+      <a href="explore.html" class="btn-text">Explore as Guest</a>
+      <button id="openAuthModalBtn" class="btn-primary">Sign In</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <div class="hero-content">
+      <span class="badge-tag">
+        <i class='bx bxs-sparkles'></i> Curated Visual Inspiration
+      </span>
+      <h1 class="hero-title">
+        Discover, collect, and explore <span>creative ideas</span>.
+      </h1>
+      <p class="hero-subtitle">
+        PhotoRest gives you a distraction-free, aesthetic space to browse high-quality visual ideas, save your favorite aesthetics, and ignite your creativity.
+      </p>
+      <div class="hero-cta-group">
+        <button id="getStartedBtn" class="btn-primary" style="padding: 14px 32px; font-size: 1.05rem;">
+          Get Started Free
+        </button>
+        <a href="explore.html" class="btn-secondary">
+          <i class='bx bx-compass'></i> Explore Feed
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Preview Visual -->
+    <div class="hero-preview-visual">
+      <div class="floating-preview-card card-pos-1">
+        <img src="images/food/burger.jpg" alt="Culinary Idea">
+      </div>
+      <div class="floating-preview-card card-pos-2">
+        <img src="images/beach/beach.jpg" alt="Nature Idea">
+      </div>
+      <div class="floating-preview-card card-pos-3">
+        <img src="images/Elden.jpg" alt="Concept Idea">
+      </div>
+    </div>
+  </main>
+
+  <!-- Clean Auth Modal -->
+  <div id="authModal" class="modal-overlay">
+    <div class="auth-modal-card">
+      <button id="closeAuthBtn" class="auth-close-btn" title="Close modal">
+        <i class='bx bx-x'></i>
+      </button>
+
+      <img class="auth-logo" src="images/alpreslogo.png" alt="PhotoRest Logo">
+
+      <!-- Login Form View -->
+      <div id="loginView">
+        <h2 class="auth-title">Welcome to PhotoRest</h2>
+        <p class="auth-subtitle">Sign in to sync your boards and saved inspiration</p>
+        <form class="auth-form" action="explore.html" method="GET">
+          <div class="input-field-wrapper">
+            <input type="email" placeholder="Email address" class="auth-input" required value="kelan@photorest.com">
+          </div>
+          <div class="input-field-wrapper">
+            <input type="password" placeholder="Password" id="loginPw" class="auth-input" required value="password123">
+            <i class='bx bx-hide password-toggle-btn' id="toggleLoginPw"></i>
+          </div>
+          <button type="submit" class="auth-submit-btn">Sign In</button>
+        </form>
+        <p class="auth-switch-text">
+          Not a member yet? <span id="switchToSignup" class="auth-switch-link">Create an account</span>
+        </p>
+      </div>
+
+      <!-- Signup Form View -->
+      <div id="signupView" style="display: none;">
+        <h2 class="auth-title">Join PhotoRest</h2>
+        <p class="auth-subtitle">Discover thousands of creative ideas today</p>
+        <form class="auth-form" action="explore.html" method="GET">
+          <div class="input-field-wrapper">
+            <input type="text" placeholder="Full name" class="auth-input" required>
+          </div>
+          <div class="input-field-wrapper">
+            <input type="email" placeholder="Email address" class="auth-input" required>
+          </div>
+          <div class="input-field-wrapper">
+            <input type="password" placeholder="Create password" id="signupPw" class="auth-input" required>
+            <i class='bx bx-hide password-toggle-btn' id="toggleSignupPw"></i>
+          </div>
+          <button type="submit" class="auth-submit-btn">Create Account</button>
+        </form>
+        <p class="auth-switch-text">
+          Already have an account? <span id="switchToLogin" class="auth-switch-link">Sign In</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const authModal = document.getElementById('authModal');
+    const openAuthBtn = document.getElementById('openAuthModalBtn');
+    const getStartedBtn = document.getElementById('getStartedBtn');
+    const closeAuthBtn = document.getElementById('closeAuthBtn');
+    const loginView = document.getElementById('loginView');
+    const signupView = document.getElementById('signupView');
+    const switchToSignup = document.getElementById('switchToSignup');
+    const switchToLogin = document.getElementById('switchToLogin');
+
+    function openModal(mode = 'login') {
+      authModal.classList.add('active');
+      if (mode === 'signup') {
+        loginView.style.display = 'none';
+        signupView.style.display = 'block';
+      } else {
+        loginView.style.display = 'block';
+        signupView.style.display = 'none';
+      }
+    }
+
+    function closeModal() {
+      authModal.classList.remove('active');
+    }
+
+    if (openAuthBtn) openAuthBtn.addEventListener('click', () => openModal('login'));
+    if (getStartedBtn) getStartedBtn.addEventListener('click', () => openModal('signup'));
+    if (closeAuthBtn) closeAuthBtn.addEventListener('click', closeModal);
+
+    authModal.addEventListener('click', (e) => {
+      if (e.target === authModal) closeModal();
+    });
+
+    switchToSignup.addEventListener('click', () => {
+      loginView.style.display = 'none';
+      signupView.style.display = 'block';
+    });
+
+    switchToLogin.addEventListener('click', () => {
+      signupView.style.display = 'none';
+      loginView.style.display = 'block';
+    });
+
+    // Password visibility toggles
+    function setupPwToggle(btnId, inputId) {
+      const btn = document.getElementById(btnId);
+      const input = document.getElementById(inputId);
+      if (btn && input) {
+        btn.addEventListener('click', () => {
+          if (input.type === 'password') {
+            input.type = 'text';
+            btn.classList.replace('bx-hide', 'bx-show');
+          } else {
+            input.type = 'password';
+            btn.classList.replace('bx-show', 'bx-hide');
+          }
+        });
+      }
+    }
+
+    setupPwToggle('toggleLoginPw', 'loginPw');
+    setupPwToggle('toggleSignupPw', 'signupPw');
+  </script>
+</body>
+</html>

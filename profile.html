@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelan's Profile - PhotoRest</title>
+  <link rel="icon" type="image/x-icon" href="images/alpreslogo.png">
+  <link rel="stylesheet" href="css/clean-theme.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- Floating Glassmorphic Navbar -->
+  <header class="navbar-clean">
+    <a href="explore.html" class="brand-logo">
+      <img src="images/alpreslogo.png" alt="PhotoRest Logo" draggable="false">
+      <span class="brand-title-text">PhotoRest</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="explore.html" class="nav-btn">
+        <i class='bx bx-compass'></i>
+        <span>Explore</span>
+      </a>
+      <a href="category.html" class="nav-btn">
+        <i class='bx bx-category-alt'></i>
+        <span>Categories</span>
+      </a>
+    </nav>
+
+    <div class="search-wrapper">
+      <i class='bx bx-search search-icon-left'></i>
+      <input type="text" id="search_bar" class="search-input-box" placeholder="Search inspiration, categories, or keywords..." autocomplete="off">
+    </div>
+
+    <div class="nav-actions">
+      <button id="createPinBtn" class="action-btn-primary" title="Create new Pin">
+        <i class='bx bx-plus'></i>
+        <span>Create</span>
+      </button>
+
+      <a href="profile.html" class="user-avatar-btn" title="Your Profile" style="border: 2px solid var(--primary);">
+        <img class="user-avatar-img" id="navAvatarImg" src="images/perfil.png" alt="User Profile">
+      </a>
+
+      <a href="index.html" class="action-icon-btn" title="Logout to Landing">
+        <i class='bx bx-log-out'></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Profile Hero Section -->
+  <section class="profile-hero-section">
+    <div class="profile-avatar-wrapper">
+      <img id="profileAvatarImg" class="profile-avatar-large" src="images/perfil.png" alt="Kelan">
+    </div>
+
+    <h1 class="profile-name-text" id="profileNameText">Kelan</h1>
+    <div class="profile-handle-text" id="profileHandleText">@kelan_visuals</div>
+    <p class="profile-bio-text" id="profileBioText">
+      Multimedia Creator & Visual Enthusiast. Collecting aesthetics and inspirational photography on PhotoRest.
+    </p>
+
+    <!-- Profile Statistics -->
+    <div class="profile-stats-row">
+      <div class="stat-item">
+        <span class="stat-value" id="statCreatedCount">0</span>
+        <span class="stat-label">Uploaded</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="statSavedCount">0</span>
+        <span class="stat-label">Saved</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="statLikedCount">0</span>
+        <span class="stat-label">Liked</span>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="profile-actions-row">
+      <button id="editProfileBtn" class="btn-edit-profile">
+        <i class='bx bx-edit'></i> Edit Profile
+      </button>
+      <button id="shareProfileBtn" class="btn-edit-profile">
+        <i class='bx bx-share-alt'></i> Share Profile
+      </button>
+    </div>
+  </section>
+
+  <!-- Profile Navigation Tabs -->
+  <nav class="profile-tabs-nav">
+    <button class="profile-tab-btn active" data-tab="boards">
+      <i class='bx bx-folder'></i>
+      <span>Collections & Boards</span>
+    </button>
+    <button class="profile-tab-btn" data-tab="created">
+      <i class='bx bx-cloud-upload'></i>
+      <span>Uploaded Pins</span>
+    </button>
+    <button class="profile-tab-btn" data-tab="liked">
+      <i class='bx bx-heart'></i>
+      <span>Liked Photos</span>
+    </button>
+  </nav>
+
+  <!-- Tab Contents -->
+  <main id="profileTabContent" style="min-height: 300px; padding: 0 32px 60px;">
+    <!-- Rendered dynamically by js/profile.js -->
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-backdrop" id="editProfileModal">
+    <div class="pin-form-card">
+      <div class="pin-form-header">
+        <h3 class="pin-form-title">Edit Profile</h3>
+        <button class="lightbox-close-btn" id="closeEditProfileBtn">
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+
+      <form id="editProfileForm">
+        <div class="form-group">
+          <label class="form-label" for="editNameInput">Display Name</label>
+          <input type="text" id="editNameInput" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="editHandleInput">Handle / Username</label>
+          <input type="text" id="editHandleInput" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="editBioInput">About Bio</label>
+          <textarea id="editBioInput" class="form-textarea" placeholder="Tell the community about your creative style"></textarea>
+        </div>
+
+        <button type="submit" class="action-btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
+          <i class='bx bx-save'></i> Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create New Board Modal -->
+  <div class="modal-backdrop" id="createBoardModal">
+    <div class="pin-form-card">
+      <div class="pin-form-header">
+        <h3 class="pin-form-title">Create New Board</h3>
+        <button class="lightbox-close-btn" id="closeCreateBoardBtn">
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+
+      <form id="createBoardForm">
+        <div class="form-group">
+          <label class="form-label" for="boardTitleInput">Board Name</label>
+          <input type="text" id="boardTitleInput" class="form-input" placeholder="e.g. Dream Cars, Food Ideas" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="boardDescInput">Description (Optional)</label>
+          <textarea id="boardDescInput" class="form-textarea" placeholder="What is this board about?"></textarea>
+        </div>
+
+        <button type="submit" class="action-btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
+          <i class='bx bx-plus'></i> Create Board
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal in Profile -->
+  <div class="modal-backdrop" id="lightboxModal">
+    <button id="lightboxPrevBtn" class="lightbox-nav-btn lightbox-nav-prev"><i class='bx bx-chevron-left'></i></button>
+    <button id="lightboxNextBtn" class="lightbox-nav-btn lightbox-nav-next"><i class='bx bx-chevron-right'></i></button>
+
+    <div class="lightbox-card">
+      <div class="lightbox-image-side">
+        <img id="lightboxImage" class="lightbox-main-img" src="" alt="Preview">
+      </div>
+      <div class="lightbox-info-side">
+        <div>
+          <div class="lightbox-header">
+            <span class="badge-category" id="lightboxCategoryTag">Inspiration</span>
+            <button class="lightbox-close-btn" id="lightboxCloseBtn"><i class='bx bx-x'></i></button>
+          </div>
+          <h2 class="lightbox-title" id="lightboxTitle">Pin Title</h2>
+          <p class="lightbox-description" id="lightboxDescription">Pin description...</p>
+        </div>
+
+        <div class="lightbox-actions">
+          <button class="lightbox-btn-download" id="lightboxDownloadBtn"><i class='bx bx-download'></i> Download</button>
+          <button class="lightbox-btn-save" id="lightboxSaveBtn"><i class='bx bx-bookmark'></i> Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grounded Footer -->
+  <footer class="feed-end-section">
+            <div class="footer-content-clean">
+      <div>
+        <strong>PhotoRest</strong> &copy; 2026. Visual Inspiration Gallery.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
+
+
+
